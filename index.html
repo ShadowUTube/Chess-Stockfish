@@ -232,3 +232,89 @@
 </body>
 
 </html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chess Piece TTS</title>
+    <style>
+      /* CSS styles for the text box and buttons */
+      input[type="text"] {
+        width: 300px;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+      }
+      button {
+        width: 50px;
+        height: 50px;
+        margin: 8px;
+        border: none;
+        cursor: pointer;
+      }
+      /* CSS styles for each chess piece button */
+      .king {
+        background-image: url("king.png");
+      }
+      .queen {
+        background-image: url("queen.png");
+      }
+      /* Add styles for other chess pieces */
+    </style>
+  </head>
+  <body>
+    <input type="text" id="text-input" placeholder="Enter text to play">
+    <button onclick="playText()">Play</button>
+    <br>
+    <h1>-----Peices-----</h1>
+    <button class="chess-piece-button king" onclick="insertText('Move King')">
+    <font size="2" face="arial">King</font></button>
+    <button class="chess-piece-button king" onclick="insertText('Move Queen')">
+    <font size="2" face="arial">Queen</font></button>
+    <button class="chess-piece-button queen" onclick="insertText('Move Rook')">
+    <font size="2" face="arial">Rook</font></button>
+    <button class="chess-piece-button rook" onclick="insertText('Move Bishop')">
+    <font size="2" face="arial">Bishop</font></button>
+    <button class="chess-piece-button bishop" onclick="insertText('Move Knight')">
+    <font size="2" face="arial">Knight</font></button>
+    <button class="chess-piece-button knight" onclick="insertText('Move Pawn')">
+    <font size="2" face="arial">Pawn</font></button>
+    <h1>-----Letters-----</h1>
+	<button class="chess-A-Button" onclick="insertText2(' To A-')">A</button>
+    <button class="chess-B-Button" onclick="insertText2(' To B-')">B</button>
+    <button class="chess-C-Button" onclick="insertText2(' To C-')">C</button>
+    <button class="chess-D-Button" onclick="insertText2(' To D-')">D</button>
+    <button class="chess-E-Button" onclick="insertText2(' To E-')">E</button>
+    <button class="chess-F-Button" onclick="insertText2(' To F-')">F</button>
+    <button class="chess-G-Button" onclick="insertText2(' To G-')">G</button>
+    <button class="chess-H-Button" onclick="insertText2(' To H-')">H</button>
+    <h1>-----Numbers-----</h1>
+    <button class="chess-1-Button" onclick="insertText2('1')">1</button>
+    <button class="chess-2-Button" onclick="insertText2('2')">2</button>
+    <button class="chess-3-Button" onclick="insertText2('3')">3</button>
+    <button class="chess-4-Button" onclick="insertText2('4')">4</button>
+    <button class="chess-1-Button" onclick="insertText2('5')">5</button>
+    <button class="chess-6-Button" onclick="insertText2('6')">6</button>
+    <button class="chess-1-Button" onclick="insertText2('7')">7</button>
+    <button class="chess-8-Button" onclick="insertText2('8')">8</button>
+    <script>
+      function playText() {
+        // Get the text from the text box
+        var text = document.getElementById("text-input").value;
+        // Use the browser's TTS functionality to play the text
+        var synth = window.speechSynthesis;
+        var utterance = new SpeechSynthesisUtterance(text);
+        synth.speak(utterance);
+      }
+      function insertText(text) {
+        // Insert the text into the text box
+        document.getElementById("text-input").value = text;
+      }
+      
+      function insertText2(text) {
+    	var currentText = document.getElementById("text-input").value;
+    	document.getElementById("text-input").value = currentText + "" + text;
+}
+
+    </script>
+  </body>
+</html>
